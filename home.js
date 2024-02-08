@@ -8,3 +8,7 @@ hamburger.addEventListener("click", () => {
     link.classList.toggle("fade");
   });
 });
+
+document.getElementById("contact1").onclick = function () {
+  window.location.href = "login.html";
+};
