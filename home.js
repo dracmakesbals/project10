@@ -10,5 +10,5 @@ hamburger.addEventListener("click", () => {
 });
 
 document.getElementById("contact1").onclick = function () {
-  window.location.href = "login.html";
+  window.location.href = "login-page/index.html";
 };
