@@ -26,11 +26,12 @@ header {
   display: none;
 }
 
-header .logo {
+header .logo a {
   font-family: "Poppins", sans-serif;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 600;
   color: #e8e6e3;
+  text-decoration: none;
 }
 
 header .nav_links {
@@ -97,8 +98,12 @@ section {
   font-family: "Poppins", sans-serif;
 }
 
+section .login {
+  display: none;
+}
+
 section form {
-  width: 500px;
+  width: clamp(20rem, 50vw, 30rem);
   /*   border: 5px solid #9bcefa; */
   border-radius: 30px;
   padding: 20px;
@@ -128,26 +133,43 @@ section .inputContainer input {
   padding-left: 10px;
   color: #e8e6e3;
   z-index: 10;
+  font-family: "Poppins", sans-serif;
 }
 
 section .inputContainer label {
   position: relative;
   font-size: 14px;
-  top: 7px;
+  top: 10px;
   left: 5px;
   transition: all ease 0.3s;
 }
 
-section .inputContainer input:focus + label {
+section .inputContainer input:focus + label,
+input:not(:placeholder-shown) ~ label {
   top: -13px;
   transition: all ease 0.3s;
   background-color: #597a95;
   border-radius: 10px;
-  padding: 5px;
+  padding: 2px 5px;
   z-index: 11;
 }
 
-section .submit {
+.signup-login-redirect {
+  display: flex;
+  align-items: center;
+}
+
+.signup-login-redirect > div {
+  font-size: 14px;
+  width: clamp(13rem, 16vw, 16rem);
+}
+
+.signup-login-redirect > div a {
+  font-size: 14px;
+  color: #e8e6e3;
+}
+
+section .signup-login-redirect .submit {
   padding: 10px 15px;
   font-size: 18px;
   font-weight: 600;
@@ -155,6 +177,7 @@ section .submit {
   border-radius: 50px;
   border: none;
   transition: all ease 0.3s;
+  margin-right: 10px;
 }
 
 section .submit:hover {
@@ -163,3 +186,65 @@ section .submit:hover {
   position: relative;
   border-radius: 15px;
 }
+
+/* END OF LOGIN FORM */
+
+@media screen and (max-width: 768px) {
+  header .nav_links {
+    position: fixed;
+    top: 10vh;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-bottom: 100px;
+    padding-left: 20px;
+    background-color: #e8e6e3;
+    clip-path: circle(50px at 10% -10%);
+    -webkit-clip-path: circle(50px at 10% -10%);
+    transition: all 0.5s ease;
+    z-index: 15;
+  }
+
+  header .nav_links li a {
+    color: #121212;
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+
+  .ham_menu {
+    display: contents;
+    color: #e8e6e3;
+  }
+
+  .user {
+    display: contents;
+    color: #e8e6e3;
+  }
+
+  header .nav_links.open {
+    clip-path: circle(50px at 10% -10%);
+    -webkit-clip-path: circle(1150px at 10% -10%);
+    transition: all 0.5s ease;
+  }
+
+  .nav_links li {
+    padding: 0;
+    opacity: 0;
+    transition: 0.5s ease all;
+  }
+
+  .nav_links li.fade {
+    padding: 0;
+    opacity: 1;
+    transition: 0.5s ease all;
+  }
+
+  .buttons {
+    display: none;
+  }
+}
+
+/* END OF RESPONSIVE NAVBAR */
