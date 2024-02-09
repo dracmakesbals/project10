@@ -261,7 +261,7 @@ header .nav_links {
 /* END OF HERO */
 
 .section2 {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   background-color: #121212;
@@ -373,10 +373,6 @@ header .nav_links {
   }
 
   .buttons {
-    display: none;
-  }
-
-  .section2 {
     display: none;
   }
 }
